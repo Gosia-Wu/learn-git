@@ -1,0 +1,71 @@
+Zadanie 1: Stworzenie nowego brancha i dodanie pliku
+
+Cel: Utrwalenie pracy z branchami.
+Kroki:
+
+Stwórz nowy branch o nazwie feature-małgosia.
+Przełącz się na ten branch.
+Dodaj nowy plik o nazwie moja_notatka.txt w katalogu głównym repozytorium.
+W pliku moja_notatka.txt napisz kilka zdań o tym, czego nauczyłaś się na temat Git.
+Zapisz zmiany, zacommituj je z odpowiednim komunikatem i zrób push na GitHub.
+
+
+Zadanie 2: Edycja istniejącego pliku i merge brancha
+Cel: Nauka edycji plików i łączenia branchy.
+Kroki:
+Przełącz się z powrotem na branch main.
+Zaktualizuj lokalną kopię main za pomocą git pull origin main.
+Przełącz się z powrotem na branch feature-małgosia.
+Znajdź plik README.md i dodaj do niego nowy akapit opisujący, czego się nauczyłaś.
+Zacommituj zmiany i zrób push na GitHub.
+Przełącz się na branch main i zmerge'uj zmiany z brancha feature-małgosia do main za pomocą git merge:
+Upewnij się, że jesteś na branchu main:
+bash
+Skopiuj kod
+git checkout main
+Zaktualizuj swój lokalny branch main:
+bash
+Skopiuj kod
+git pull origin main
+Wykonaj merge z feature-małgosia:
+bash
+Skopiuj kod
+git merge feature-małgosia
+Jeśli wystąpią konflikty, rozwiąż je w edytorze, a następnie zacommituj zmiany:
+bash
+Skopiuj kod
+git add <plik>
+git commit
+Wypchnij zaktualizowany branch main na GitHub:
+bash
+Skopiuj kod
+git push origin main
+
+
+Zadanie 3: Rozwiązywanie konfliktów merge
+Cel: Nauka rozwiązywania konfliktów.
+Kroki:
+Przełącz się na branch main.
+Zaktualizuj plik README.md w branchu main, dodając do niego kolejny akapit (inny niż ten z poprzedniego zadania).
+Zacommituj zmiany i wypchnij je na GitHub.
+Przełącz się na branch feature-małgosia i zaktualizuj go o zmiany z main za pomocą git merge main.
+Pojawi się konflikt – rozwiąż go w edytorze wbudowanym w VS Code.
+Zacommituj rozwiązanie konfliktu i zrób push na GitHub.
+
+
+Zadanie 4: Praca z .gitignore
+Cel: Zrozumienie działania pliku .gitignore.
+Kroki:
+Stwórz w repozytorium nowy folder o nazwie test-folder.
+Wewnątrz folderu test-folder utwórz kilka plików, np. plik1.txt, plik2.log, plik3.tmp.
+Dodaj do głównego katalogu repozytorium plik .gitignore, który będzie ignorował wszystkie pliki z rozszerzeniem .log i .tmp.
+Sprawdź, czy pliki są ignorowane za pomocą git status.
+Zacommituj plik .gitignore i folder z odpowiednimi plikami (tylko .txt powinien być dodany).
+Zrób push na GitHub.
+
+Zadanie 5: Usuwanie plików z repozytorium
+Cel: Nauka usuwania plików z repozytorium.
+Kroki:
+Usuń plik moja_notatka.txt z repozytorium (z folderu lokalnego).
+Zacommituj usunięcie pliku z odpowiednim komunikatem.
+Wypchnij zmiany na GitHub.
