@@ -1,1 +1,0 @@
-Wczoraj poznałam gita. Staram się zapamiętać jak tworzyć zmiany i wysyłać je do repozytorium oraz jak pobierać zmiany wprowadzone przez współpracownika. Uczę się tworzenia branchy.
