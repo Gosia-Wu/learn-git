@@ -1,6 +1,6 @@
 import pytest
 from playwright.async_api import Page
-from .utils.utils import goToPage, clickTab, getTitles, compareTitles
+from .utils.utils import goToPage, clickTab, getTitles, compareTitles, getElementsInRange
 
 # Funkcja po refaktoryzacji, rozbicie funkcji na pomniejsze funkcje, wyniesione do folderu utils (zbiór funkcji
 # pomocniczych, reużywalnych):
@@ -11,12 +11,13 @@ from .utils.utils import goToPage, clickTab, getTitles, compareTitles
 
 
 @pytest.mark.anyio("asyncio")
-async def test_navigation(page: Page):
+async def testNavigation(page: Page):
     await goToPage(page, "https://wfirma.pl")
-    await clickTab(page, "Dla kogo")
+    await clickTab(page, f"text=Dla kogo")
     actualTitles = await getTitles(page, ".item-title")
-    expected_titles: list[str] = ["Samozatrudnieni", "Małe firmy", "Spółki i NGO'sy"]
-    compareTitles(actualTitles, expected_titles, 3)
+    expectedTitles: list[str] = ["Samozatrudnieni", "Małe firmy", "Spółki i NGO'sy"]
+    result = getElementsInRange(actualTitles, ":3")
+    compareTitles(result, expectedTitles)
    
 
 # Funkcja testu przed refaktoryzacją
