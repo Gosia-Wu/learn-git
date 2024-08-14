@@ -1,8 +1,18 @@
-from playwright.sync_api import Page
+from playwright.async_api import Page
 
-def goToTestPage(page:Page, website):
-    page.goto(website)
+async def goToPage(page: Page, url: str):
+    await page.goto(url)
 
-def onSingleTabClick(page: Page, tabName):
+async def clickTab(page: Page, tabName: str):
     currentTab = page.locator(f"text={tabName}")
-    currentTab.click()
+    await currentTab.click()
+
+async def getTitles(page: Page, selector: str):
+    elements = page.locator(selector)
+    titles = await elements.all_text_contents()
+    return [title.replace("\xa0", " ").strip() for title in titles]
+
+def compareTitles(actualElements: list[str], expectedElements: list[str], range):
+     actualResult = actualElements[:range]
+     assert actualResult == expectedElements, f"Expected {expectedElements} but got {actualResult}"
+
